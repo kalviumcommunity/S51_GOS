@@ -1,0 +1,18 @@
+{
+  "name": "s51_gos",
+  "version": "1.0.0",
+  "description": "Welcome to the \"Gallery of Sneakers\" repository, an exhibit that takes you on a journey through a diverse collection of athletic footwear. Explore this gallery to discover a wide range of styles, brands, and designs, from classic to avant-garde. Each pair featured in this display tells a unique story of fashion and functionality.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "node": "^21.6.1",
+    "react": "^18.2.0"
+  }
+}
