@@ -14,5 +14,4 @@ This repository serves as a virtual exhibit where sneaker enthusiasts can explor
 
 
 #### Deployed link 
-
 https://gallery-of-senakers.onrender.com/
