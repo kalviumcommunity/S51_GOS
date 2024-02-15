@@ -10,8 +10,6 @@ This repository serves as a virtual exhibit where sneaker enthusiasts can explor
 
 * Dynamic Display: Explore the dynamic world of athletic footwear, ranging from classic to avant-garde designs.
 
-* Unique Stories: Each pair in the gallery tells a distinctive tale, showcasing the fusion of fashion and functionality.
-
 
 #### Deployed link 
 https://gallery-of-senakers.onrender.com/
