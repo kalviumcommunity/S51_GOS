@@ -27,7 +27,6 @@ postRouter.post('/post', async (req, res) => {
     try {
         const { SneakerID,Brand ,Model ,Type ,Color, Size,Price,SneakerURL,Availability } = req.body;
         const newsenaker = await Senaker.create({ SneakerID,Brand ,Model ,Type ,Color, Size,Price,SneakerURL,Availability }); 
-        console.log("new", newsenaker);
         res.status(200).json(newsenaker);
     } catch(err) {
         console.error(err);
