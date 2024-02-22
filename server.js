@@ -1,10 +1,17 @@
 const { startDatabase, stopDatabase, isConnected } = require('./db');
+const {getRouter,postRouter,patchRouter,deleteRouter} = require(`./routes/routes`);
+const bodyparser = require('body-parser')
 
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const port = 3000;
 
-
+app.use(bodyparser.json())
+app.use("/",getRouter)
+app.use("/",postRouter)
+app.use("/",patchRouter)
+app.use("/",deleteRouter)
 
 
 app.get('/', (req, res) => {

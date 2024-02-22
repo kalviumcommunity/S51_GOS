@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const mongoURI= 'mongodb+srv://ranjan:ranjan11@ranjanm.loks0le.mongodb.net/?retryWrites=true&w=majority'
+
 
 const startDatabase = async () => {
   try {
-    await mongoose.connect(mongoURI);
+    await mongoose.connect(process.env.DATABASE_URI);
     console.log('📦 connected to MongoDB');
   } catch (err) {
     console.error('❌ error connecting to MongoDB:', err.message);
