@@ -1,0 +1,17 @@
+meta {
+  name: Patch
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:3000/patch/25
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "Brand":"PUMA"
+  }
+}
