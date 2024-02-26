@@ -1,0 +1,13 @@
+[
+    {
+        "SneakerID": 18,
+        "Brand": "Timberland",
+        "Model": "6-Inch Premium",
+        "Type": "Boots",
+        "Color": "Wheat",
+        "Size": 11,
+        "Price": 1800,
+        "SneakerURL": "Timberland",
+        "Availability": "YES"
+    }
+]
