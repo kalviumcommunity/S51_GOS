@@ -1,6 +1,8 @@
 const { startDatabase, stopDatabase, isConnected } = require('./db');
 const {getRouter,postRouter,patchRouter,deleteRouter} = require(`./routes/routes`);
 const bodyparser = require('body-parser')
+const cors = require('cors')
+
 
 require('dotenv').config()
 const express = require('express');
@@ -8,6 +10,7 @@ const app = express();
 const port = 3000;
 
 app.use(bodyparser.json())
+app.use(cors())
 app.use("/",getRouter)
 app.use("/",postRouter)
 app.use("/",patchRouter)
