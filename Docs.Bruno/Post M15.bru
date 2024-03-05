@@ -5,7 +5,21 @@ meta {
 }
 
 post {
-  url: 
-  body: none
+  url: http://localhost:3000/post
+  body: json
   auth: none
+}
+
+body:json {
+  {
+          "SneakerID": 30,
+          "Brand": "sdaeda",
+          "Model": "88-Inch Premium",
+          "Type": "Boots",
+          "Color": "Sandal",
+          "Size": 15,
+          "Price": 6000,
+          "SneakerURL": "sdaeda",
+          "Availability": "YES"
+      }
 }
