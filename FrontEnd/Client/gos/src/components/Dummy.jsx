@@ -31,6 +31,7 @@ import "./../App.css";
 
 function SneakerProfile() {
   const [sneakerData, setSneakerData] = useState([]);
+  const [selectedCreatedBy, setSelectedCreatedBy] = useState("All");
 
   useEffect(() => {
     fetchSneakers();
@@ -70,6 +71,15 @@ function SneakerProfile() {
     }
   };
 
+  const handleCreatedByFilter = (event) => {
+    setSelectedCreatedBy(event.target.value);
+  };
+
+  const filteredSneakers =
+    selectedCreatedBy === "All"
+      ? sneakerData
+      : sneakerData.filter((sneaker) => sneaker.CreatedBy === selectedCreatedBy);
+
   return (
     <>
       <h1 className="landingpage">Welcome to GALLERY OF SNEAKER!</h1>
@@ -86,10 +96,24 @@ function SneakerProfile() {
         <Link to="/newdata">
           <button className="add">ADD</button>
         </Link>
-      </div>
 
+        
+      </div>
+      <div className="drop" >
+      <select className="dropdown" onChange={handleCreatedByFilter} value={selectedCreatedBy}>
+          <option value="All">All</option>
+          <option value="Ranjan">Ranjan</option>
+          <option value="Kevin">Kevin</option>
+          <option value="Alex">Alex</option>
+          <option value="Mogi">Mogi</option>
+          <option value="Digeo">Digeo</option>
+          <option value="Navas">Navas</option>
+          <option value="King">King</option>
+        </select>
+
+      </div>
       <div className="dummy">
-        {sneakerData.map((sneaker) => (
+        {filteredSneakers.map((sneaker) => (
           <div key={sneaker.SneakerID} className="box">
             <div className="main">
               <p>Sneaker ID: {sneaker.SneakerID}</p>
@@ -101,6 +125,8 @@ function SneakerProfile() {
               <p>Price: {sneaker.Price}</p>
               <p>Sneaker URL: {sneaker.SneakerURL}</p>
               <p>Availability: {sneaker.Availability}</p>
+              <p>Created By: {sneaker.CreatedBy}</p>
+
               <Link to={`/update/${sneaker.SneakerID}`}>
                 <button className="edit">Edit</button>
               </Link>

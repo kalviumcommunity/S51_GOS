@@ -13,6 +13,7 @@ export default function NewData() {
   const [Price, setPrice] = useState("");
   const [SneakerURL, setSneakerURL] = useState("");
   const [Availability, setAvailability] = useState("");
+  const [CreatedBy,setCreatedBy] = useState('')
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -28,6 +29,7 @@ export default function NewData() {
         Price,
         SneakerURL,
         Availability,
+        CreatedBy,
       })
       .then((res) => {
         console.log(res);
@@ -127,6 +129,15 @@ export default function NewData() {
             id="SneakerID"
             name="SneakerID"
             onChange={(e) => setSneakerID(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="SneakerID">CreatedBy:</label>
+          <input
+            type="text"
+            id="CreatedBy"
+            name="CreatedBy"
+            onChange={(e) => setCreatedBy(e.target.value)}
           />
         </div>
 

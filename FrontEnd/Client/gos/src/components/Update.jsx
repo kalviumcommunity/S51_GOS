@@ -16,6 +16,7 @@ export default function UpdateData() {
   const [Price, setPrice] = useState("");
   const [SneakerURL, setSneakerURL] = useState("");
   const [Availability, setAvailability] = useState("");
+  const [CreatedBy,setCreatedBy] = useState('')
  
 
   const handleSubmit = async (e) => {
@@ -34,6 +35,7 @@ export default function UpdateData() {
           Price: Price,
           SneakerURL: SneakerURL,
           Availability: Availability,
+          CreatedBy : CreatedBy,
         },
         {
           headers: {
@@ -147,6 +149,16 @@ export default function UpdateData() {
               name="Availability"
               value={Availability}
               onChange={(e) => setAvailability(e.target.value)}
+            />
+          </div>
+          <div className="div">
+            <label htmlFor="Availability">CreatedBy</label>
+            <input
+              type="text"
+              id="Availability"
+              name="Availability"
+              value={CreatedBy}
+              onChange={(e) => setCreatedBy(e.target.value)}
             />
           </div>
           <input type="submit" className="submit" value="Submit" />
