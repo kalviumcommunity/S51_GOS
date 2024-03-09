@@ -184,3 +184,21 @@ input[type="submit"]:hover {
 .drop{
   margin-left: 20px;
 }
+
+.log{
+  padding: 10px;
+  font-size: 16px;
+  padding-left: 10px;
+  background-color: #FFBE98;
+  color:black; 
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px; 
+  height: 40px;
+}
+
+.log:hover{
+  background-color: black; 
+  color: white; 
+}

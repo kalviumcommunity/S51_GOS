@@ -5,6 +5,9 @@ const patchRouter = express.Router();
 const deleteRouter = express.Router();
 const Senaker = require("./../models/senakers.model.js");
 const updateAndPostJoi = require("../validator.js");
+const bcrypt = require("bcrypt")
+const User = require("./../models/user.model.js");
+const jwt = require('jsonwebtoken');
 
 getRouter.get("/get", async (req, res) => {
   try {
@@ -37,6 +40,7 @@ postRouter.post("/post", async (req, res) => {
         Price,
         SneakerURL,
         Availability,
+        CreatedBy,
       } = req.body;
       const newsenaker = await Senaker.create({
         SneakerID,
@@ -48,6 +52,7 @@ postRouter.post("/post", async (req, res) => {
         Price,
         SneakerURL,
         Availability,
+        CreatedBy,
       });
       res.status(200).json(newsenaker);
     }
@@ -107,5 +112,36 @@ deleteRouter.delete("/delete/:SneakerID", async (req, res) => {
     return res.status(500).json({ error: "Something went wrong" });
   }
 });
+
+//Login
+
+postRouter.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  console.log("user", username, password)
+
+  try {
+      const user = await User.findOne({ username });
+      if (!user) {
+          return res.status(401).json({ error: 'Invalid username or password' });
+      }
+      const isPasswordValid =  bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
+          return res.status(401).json({ error: 'Invalid username or password' });
+      }
+      const token = jwt.sign({ username: user.username }, process.env.ACCESS_TOKEN);
+      res.cookie('token', token, { httpOnly: true });
+      console.log("token", token, user.username)
+      res.json({ token, username: user.username });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Something went wrong' });
+  }
+});
+
+getRouter.get("/logout", (req, res)=>{
+  res.clearCookie('token');
+  res.send('Logout successful');
+});
+
 
 module.exports = { getRouter, postRouter, patchRouter, deleteRouter };
