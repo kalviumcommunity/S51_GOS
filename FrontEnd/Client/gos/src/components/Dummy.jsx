@@ -25,6 +25,8 @@
 
 // export default SneakerProfile;
 
+
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./../App.css";
@@ -32,6 +34,7 @@ import "./../App.css";
 function SneakerProfile() {
   const [sneakerData, setSneakerData] = useState([]);
   const [selectedCreatedBy, setSelectedCreatedBy] = useState("All");
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
     fetchSneakers();
@@ -48,6 +51,23 @@ function SneakerProfile() {
       console.error("Error fetching sneakers:", error);
     }
   };
+  const checkLoginStatus = () => {
+    const token = getCookie('token');
+    setIsLoggedIn(!!token);
+};
+useEffect(() => {
+    checkLoginStatus();
+}, []);
+const handleLogout = () => {
+    document.cookie = 'token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    setIsLoggedIn(false);
+    window.location.reload();
+};
+const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+};
 
   const handleDelete = async (sneakerID) => {
     try {
@@ -92,14 +112,7 @@ function SneakerProfile() {
       <br />
       <hr className="line" />
       <div className="container">
-        <h1 className="h1">Sneaker Profiles</h1>
-        <Link to="/newdata">
-          <button className="add">ADD</button>
-        </Link>
-
-        
-      </div>
-      <div className="drop" >
+        <h1 className="h1">Sneaker Profiles  <div className="drop" >
       <select className="dropdown" onChange={handleCreatedByFilter} value={selectedCreatedBy}>
           <option value="All">All</option>
           <option value="Ranjan">Ranjan</option>
@@ -111,7 +124,19 @@ function SneakerProfile() {
           <option value="King">King</option>
         </select>
 
+      </div> </h1>
+        {isLoggedIn && <Link to="/newdata">
+          <button className="add">ADD</button>
+        </Link>}
+        {isLoggedIn ? (
+                    <button className="log" onClick={handleLogout}>LOGOUT</button>
+                ) : (
+                    <Link to='/login'><button className="log">LOGIN</button></Link>
+                )}
+
+        
       </div>
+     
       <div className="dummy">
         {filteredSneakers.map((sneaker) => (
           <div key={sneaker.SneakerID} className="box">
@@ -127,15 +152,15 @@ function SneakerProfile() {
               <p>Availability: {sneaker.Availability}</p>
               <p>Created By: {sneaker.CreatedBy}</p>
 
-              <Link to={`/update/${sneaker.SneakerID}`}>
+              {isLoggedIn && <Link to={`/update/${sneaker.SneakerID}`}>
                 <button className="edit">Edit</button>
-              </Link>
-              <button
+              </Link>}
+              {isLoggedIn && <button
                 onClick={(e) => handleDelete(sneaker.SneakerID)}
                 className="edit"
               >
                 Delete
-              </button>
+              </button>}
             </div>
           </div>
         ))}
