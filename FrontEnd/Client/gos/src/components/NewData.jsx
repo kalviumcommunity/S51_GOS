@@ -11,7 +11,6 @@ export default function NewData() {
   const [Color, setColor] = useState("");
   const [Size, setSize] = useState("");
   const [Price, setPrice] = useState("");
-  const [SneakerURL, setSneakerURL] = useState("");
   const [Availability, setAvailability] = useState("");
   const [CreatedBy,setCreatedBy] = useState('')
   const navigate = useNavigate();
@@ -27,7 +26,6 @@ export default function NewData() {
         Color,
         Size,
         Price,
-        SneakerURL,
         Availability,
         CreatedBy,
       })
@@ -102,15 +100,6 @@ export default function NewData() {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="SneakerURL">Sneaker URL:</label>
-          <input
-            type="text"
-            id="SneakerURL"
-            name="SneakerURL"
-            onChange={(e) => setSneakerURL(e.target.value)}
-          />
-        </div>
 
         <div className="form-group">
           <label htmlFor="Availability">Availability:</label>

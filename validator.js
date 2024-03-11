@@ -10,7 +10,6 @@ const postUpdateSchema = Joi.object({
   Color: Joi.string().required(),
   Size: Joi.number().required(),
   Price: Joi.number().required(),
-  SneakerURL: Joi.string().required(),
   Availability: Joi.string().required(),
 });
 

@@ -14,7 +14,6 @@ export default function UpdateData() {
   const [Color, setColor] = useState("");
   const [Size, setSize] = useState("");
   const [Price, setPrice] = useState("");
-  const [SneakerURL, setSneakerURL] = useState("");
   const [Availability, setAvailability] = useState("");
   const [CreatedBy,setCreatedBy] = useState('')
  
@@ -33,7 +32,6 @@ export default function UpdateData() {
           Color: Color,
           Size: Size,
           Price: Price,
-          SneakerURL: SneakerURL,
           Availability: Availability,
           CreatedBy : CreatedBy,
         },
@@ -129,16 +127,6 @@ export default function UpdateData() {
               name="Price"
               value={Price}
               onChange={(e) => setPrice(e.target.value)}
-            />
-          </div>
-          <div className="div">
-            <label htmlFor="SneakerURL">Sneaker URL</label>
-            <input
-              type="text"
-              id="SneakerURL"
-              name="SneakerURL"
-              value={SneakerURL}
-              onChange={(e) => setSneakerURL(e.target.value)}
             />
           </div>
           <div className="div">
