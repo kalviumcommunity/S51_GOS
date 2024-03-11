@@ -19,7 +19,7 @@ export default function NewData() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("https://gallery-of-senakers.onrender.com/post", {
+      .post("https://s51-gos-1.onrender.com/post", {
         SneakerID,
         Brand,
         Model,
