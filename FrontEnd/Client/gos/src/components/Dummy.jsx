@@ -15,7 +15,6 @@
 //           <strong>Color:</strong> {sneaker.Color} <br />
 //           <strong>Size:</strong> {sneaker.Size} <br />
 //           <strong>Price:</strong> {sneaker.Price} <br />
-//           <strong>SneakerURL:</strong> {sneaker.SneakerURL} <br />
 //           <strong>Availability:</strong> {sneaker.Availability} <br />
 //         </div>
 //       ))}
@@ -148,7 +147,6 @@ const getCookie = (name) => {
               <p>Color: {sneaker.Color}</p>
               <p>Size: {sneaker.Size}</p>
               <p>Price: {sneaker.Price}</p>
-              <p>Sneaker URL: {sneaker.SneakerURL}</p>
               <p>Availability: {sneaker.Availability}</p>
               <p>Created By: {sneaker.CreatedBy}</p>
 
