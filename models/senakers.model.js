@@ -8,7 +8,6 @@ const SenakerSchema = new mongoose.Schema({
     Color : {type : String},
     Size : {type : Number },
     Price : {type : Number},
-    SneakerURL : {type : String},
     Availability : {type : String},
     CreatedBy : {type : String}
 

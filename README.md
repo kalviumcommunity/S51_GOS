@@ -11,10 +11,12 @@ This repository serves as a virtual exhibit where sneaker enthusiasts can explor
 * Dynamic Display: Explore the dynamic world of athletic footwear, ranging from classic to avant-garde designs.
 
 
+
 #### BackEnd Deployed link 
-https://gallery-of-senakers.onrender.com/
+https://s51-gos-1.onrender.com/
 
 
 #### FrontEnd Deployed link 
 
 https://s51-galleryofsneakers.netlify.app/
+

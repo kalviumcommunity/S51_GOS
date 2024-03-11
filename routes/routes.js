@@ -38,7 +38,6 @@ postRouter.post("/post", async (req, res) => {
         Color,
         Size,
         Price,
-        SneakerURL,
         Availability,
         CreatedBy,
       } = req.body;
@@ -50,7 +49,6 @@ postRouter.post("/post", async (req, res) => {
         Color,
         Size,
         Price,
-        SneakerURL,
         Availability,
         CreatedBy,
       });
