@@ -24,7 +24,7 @@ export default function UpdateData() {
 
     try {
       const response = await axios.patch(
-        `https://gallery-of-senakers.onrender.com/patch/${id}`,
+        `https://s51-gos-1.onrender.com/patch/${id}`,
         {
           SneakerID: SneakerID,
           Brand: Brand,

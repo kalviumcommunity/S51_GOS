@@ -43,7 +43,7 @@ function SneakerProfile() {
   const fetchSneakers = async () => {
     try {
       const response = await fetch(
-        "https://gallery-of-senakers.onrender.com/get"
+        "https://s51-gos-1.onrender.com/get"
       );
       const data = await response.json();
       setSneakerData(data);
@@ -72,7 +72,7 @@ const getCookie = (name) => {
   const handleDelete = async (sneakerID) => {
     try {
       const response = await fetch(
-        `https://gallery-of-senakers.onrender.com/delete/${sneakerID}`,
+        `https://s51-gos-1.onrender.com/delete/${sneakerID}`,
         {
           method: "DELETE",
         }
@@ -112,7 +112,9 @@ const getCookie = (name) => {
       <br />
       <hr className="line" />
       <div className="container">
-        <h1 className="h1">Sneaker Profiles  <div className="drop" >
+        <h1 className="h1">Sneaker Profiles  <div className="drop" >{isLoggedIn && <Link to="/newdata">
+          <button className="add">ADD</button>
+        </Link>}
       <select className="dropdown" onChange={handleCreatedByFilter} value={selectedCreatedBy}>
           <option value="All">All</option>
           <option value="Ranjan">Ranjan</option>
@@ -125,9 +127,7 @@ const getCookie = (name) => {
         </select>
 
       </div> </h1>
-        {isLoggedIn && <Link to="/newdata">
-          <button className="add">ADD</button>
-        </Link>}
+        
         {isLoggedIn ? (
                     <button className="log" onClick={handleLogout}>LOGOUT</button>
                 ) : (
@@ -141,7 +141,7 @@ const getCookie = (name) => {
         {filteredSneakers.map((sneaker) => (
           <div key={sneaker.SneakerID} className="box">
             <div className="main">
-              <p>Sneaker ID: {sneaker.SneakerID}</p>
+              <p>Sneaker ID: {sneaker.SneakerID}  </p>
               <p>Brand: {sneaker.Brand}</p>
               <p>Model: {sneaker.Model}</p>
               <p>Type: {sneaker.Type}</p>

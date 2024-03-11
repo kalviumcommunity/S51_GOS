@@ -58,6 +58,7 @@ body{
 .container{
   display: flex;
   justify-content: space-between;
+  align-items: center; 
   
 }
 .add {
@@ -69,6 +70,7 @@ body{
   border-radius: 5px;
   cursor: pointer;
   margin: 10px; 
+  margin-right: 10px;
 }
 
 .add:hover {
@@ -94,6 +96,37 @@ body{
   display: flex;
   
 }
+.login-container {
+  width: 500px;
+  margin: 20px;
+  margin-left: 500px;
+  margin-top: 70px;
+  background-color: #fff;
+  padding: 20px;
+  font-size: large;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.login{
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  width: 100px;
+  margin-left: 200px;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login:hover {
+  background-color: #FFBE98;
+  color: black;
+  border: 2px solid black; 
+}
+
 
 label {
   display: block;
@@ -160,6 +193,10 @@ input[type="submit"]:hover {
 .box:hover{
   scale: 1.1;
 
+}
+
+.error-message{
+  color: red;
 }
 
 .dropdown{
